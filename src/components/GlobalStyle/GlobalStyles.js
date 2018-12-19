@@ -19,7 +19,7 @@ body {
   
 }
 .checked{
-  color: #c82b22;
+  color: #fd9d0f;
 }
 article,
 aside,

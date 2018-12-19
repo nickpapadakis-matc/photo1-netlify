@@ -15,7 +15,7 @@ const SmallButton = styled.div`
   margin-top: 2rem;
   cursor: pointer;
 `
-var config = {
+let config = {
   apiKey: 'AIzaSyBsTceUCv-JTVGh0MTMgJYZIMyUm1tWAG4',
   authDomain: 'my-photo-app-62a09.firebaseapp.com',
   databaseURL: 'https://my-photo-app-62a09.firebaseio.com',

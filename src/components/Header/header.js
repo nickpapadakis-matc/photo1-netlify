@@ -45,9 +45,11 @@ const Login = styled.div`
 const Header = ({ siteTitle, currentUser, login, logout }) => (
   <Outer>
     <Inner>
-      <Img>
-        <img src={image} alt="" />
-      </Img>
+      <Link to="/">
+        <Img>
+          <img src={image} alt="" />
+        </Img>
+      </Link>
       <H1>
         <StyledLink to="/">{siteTitle}</StyledLink>
       </H1>
