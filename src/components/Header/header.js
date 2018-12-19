@@ -32,7 +32,17 @@ const Img = styled.div`
   margin: 0 auto;
 `
 
-const Header = ({ siteTitle }) => (
+const ScriptLink = styled.span`
+  color: black;
+  cursor: pointer;
+`
+
+const Login = styled.div`
+  margin-left: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+`
+
+const Header = ({ siteTitle, currentUser, login, logout }) => (
   <Outer>
     <Inner>
       <Img>
@@ -41,6 +51,13 @@ const Header = ({ siteTitle }) => (
       <H1>
         <StyledLink to="/">{siteTitle}</StyledLink>
       </H1>
+      <Login>
+        {currentUser ? (
+          <ScriptLink onClick={logout}>Logout</ScriptLink>
+        ) : (
+          <ScriptLink onClick={login}>Login</ScriptLink>
+        )}
+      </Login>
     </Inner>
   </Outer>
 )

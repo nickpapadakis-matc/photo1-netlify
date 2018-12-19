@@ -1,11 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import firebase from 'firebase'
+import { Link } from 'gatsby'
 
 const Button = styled.div`
   text-align: center;
   font-size: 150%;
   font-family: 'Font Awesome';
+  cursor: pointer;
 `
+const SmallButton = styled.div`
+  font-size: 40%;
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 2rem;
+  cursor: pointer;
+`
+var config = {
+  apiKey: 'AIzaSyBsTceUCv-JTVGh0MTMgJYZIMyUm1tWAG4',
+  authDomain: 'my-photo-app-62a09.firebaseapp.com',
+  databaseURL: 'https://my-photo-app-62a09.firebaseio.com',
+  projectId: 'my-photo-app-62a09',
+  storageBucket: 'my-photo-app-62a09.appspot.com',
+  messagingSenderId: '592942362420',
+}
+let firebaseDB = firebase.initializeApp(config)
 
 class StarButton extends React.Component {
   constructor(props) {
@@ -79,11 +97,14 @@ class StarButton extends React.Component {
         break
     }
   }
+  sendData = () => {
+    let db = firebaseDB.database().ref('user')
+    db.push(this.state.user)
+  }
   render() {
     const Button = styled.div`
       text-align: center;
       font-size: 250%;
-      font-family: 'Font Awesome';
     `
 
     return (
@@ -123,6 +144,11 @@ class StarButton extends React.Component {
         >
           &#9734;
         </button>
+        <SmallButton>
+          <Link to="/page-2">
+            <button onClick={this.sendData}>Submit</button>
+          </Link>
+        </SmallButton>
       </Button>
     )
   }
